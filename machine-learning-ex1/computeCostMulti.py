@@ -1,11 +1,11 @@
-# COMPUTECOST Compute cost for linear regression
-#    J = COMPUTECOST(X, y, theta) computes the cost of using theta as the
-#    parameter for linear regression to fit the data points in X and y
+# COMPUTECOSTMULTI Compute cost for linear regression with multiple variables
+#   J = COMPUTECOSTMULTI(X, y, theta) computes the cost of using theta as the
+#   parameter for linear regression to fit the data points in X and y
 
 import numpy as np
 
 
-def computeCost(X, y, theta):
+def computeCostMulti(X, y, theta):
     # Initialize some useful values
     m = y.shape[0]  # number of training examples
 
@@ -13,10 +13,6 @@ def computeCost(X, y, theta):
     J = 0
 
     #  ====================== YOUR CODE HERE ======================
-
-    h = lambda X, theta: X.dot(theta)
-    diff = h(X, theta) - y
-    J = diff.T.dot(diff) / (2 * m)
 
     #  =========================================================================
 
