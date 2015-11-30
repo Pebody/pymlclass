@@ -46,7 +46,7 @@ if __name__ == '__main__':
 
     # ================ Part 2: Gradient Descent ================
 
-    # ====================== YOUR CODE HERE ======================
+    # ====================== YOUR CODE HERE ====================
 
     print('Running gradient descent ...')
 
@@ -70,9 +70,10 @@ if __name__ == '__main__':
 
     # Estimate the price of a 1650 sq-ft, 3 br house
     # ====================== YOUR CODE HERE ======================
+
     price = 0  # You should change this
 
-    # == == == == == == == == == == == == == == == == == == == == ==
+    # == == == == == == == == == == == == == == == == == == == ==
 
     print('Predicted price of a 1650 sq-ft, 3 br house ' +
           '(using gradient descent):\n $%f\n' % (price))
@@ -83,7 +84,7 @@ if __name__ == '__main__':
 
     print('Solving with normal equations...')
 
-    # ====================== YOUR CODE HERE ======================
+    # ====================== YOUR CODE HERE ====================
 
     # Load Data
     data = np.asmatrix(np.loadtxt('ex1data2.txt', delimiter=','))
