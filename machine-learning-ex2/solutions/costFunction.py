@@ -5,7 +5,7 @@
 
 import numpy as np
 
-from sigmoid import sigmoid
+from solutions.sigmoid import sigmoid
 
 
 def costFunction(theta, X, y):

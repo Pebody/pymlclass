@@ -9,7 +9,6 @@ from scipy import optimize
 import os
 
 from predict import predict
-from sigmoid import sigmoid
 from plotData import plotData
 from mapFeature import mapFeature
 from costFunctionReg import costFunctionReg
@@ -104,7 +103,6 @@ if __name__ == '__main__':
     # Compute accuracy on our training set
     p = predict(theta, X)
 
-    acc = np.mean((y.T == ((sigmoid(X.dot(theta)) >= 0.5) * 1)) * 1)
-    print('Train Accuracy: %f' % acc)
+    print('Train Accuracy: %f' % np.mean((y.T == p) * 1))
 
     input('Program paused. Press enter to continue.\n')

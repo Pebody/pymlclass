@@ -104,7 +104,6 @@ if __name__ == '__main__':
     # Compute accuracy on our training set
     p = predict(theta, X)
 
-    acc = np.mean((y.T == ((sigmoid(X.dot(theta)) >= 0.5) * 1)) * 1)
-    print('Train Accuracy: %f' % acc)
+    print('Train Accuracy: %f' % np.mean((y.T == p) * 1))
 
     input('Program paused. Press enter to continue.\n')
