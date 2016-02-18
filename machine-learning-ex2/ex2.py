@@ -67,16 +67,16 @@ if __name__ == '__main__':
 
     # ============= Part 3: Optimizing using fminunc  =============
     res = optimize.minimize(costFunction, initial_theta, args=(X, y),
-                            method='BFGS', jac=True, options={'maxiter': 400})
+                            method='BFGS', jac=True, options={'maxiter': 400, 'disp': True})
     theta, cost = res.x, res.fun
 
     # Print theta to screen
-    print('Cost at theta found by fminunc: %f' % cost)
+    print('Cost at theta found by scipy.optimize.minimize: %f' % cost)
     print('theta:')
     print(theta)
 
     # Plot decision boundary
-    plot_x = np.array([min(X[:, 1]) - 2,  max(X[:, 1]) + 2])
+    plot_x = np.array([min(X[:, 1]) - 2, max(X[:, 1]) + 2])
     plot_y = (-1 / theta[2]) * (theta[1] * plot_x + theta[0])
     plt.plot(plot_x.reshape(2,), plot_y.reshape(2,), label='Decision Boundary')
     plt.legend(numpoints=1)

@@ -18,11 +18,13 @@ def costFunction(theta, X, y):
 
     # ====================== YOUR CODE HERE ======================
 
-    h = lambda X, theta: X.dot(theta)
+    def h(X, theta):
+        return X.dot(theta)
+
     J = np.float(-y.T * np.nan_to_num(np.log(sigmoid(h(X, theta))).T) -
                  (1 - y).T * np.nan_to_num(np.log(1 - sigmoid(h(X, theta))).T)) / m
-    grad = np.asarray((sigmoid(h(X, theta)) - y.T).dot(X) / m)[0]
+    grad = (sigmoid(h(X, theta)) - y.T).dot(X) / m
 
     # =============================================================
 
-    return (J, grad)
+    return (J, grad.A1)

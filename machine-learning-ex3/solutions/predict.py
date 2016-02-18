@@ -17,7 +17,8 @@ def predict(Theta1, Theta2, X):
 
     # ====================== YOUR CODE HERE ======================
 
-    h = lambda X, theta: X.dot(theta)
+    def h(X, theta):
+        return X.dot(theta)
 
     X = np.hstack((np.ones((m, 1)), X))
 

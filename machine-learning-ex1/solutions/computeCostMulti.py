@@ -14,7 +14,9 @@ def computeCostMulti(X, y, theta):
 
     #  ====================== YOUR CODE HERE ======================
 
-    h = lambda X, theta: X.dot(theta)
+    def h(X, theta):
+        return X.dot(theta)
+
     diff = h(X, theta) - y
     J = diff.T.dot(diff) / (2 * m)
 

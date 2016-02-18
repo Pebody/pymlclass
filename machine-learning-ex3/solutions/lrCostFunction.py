@@ -19,18 +19,19 @@ def lrCostFunction(theta, X, y, lmbda):
 
     # ====================== YOUR CODE HERE ======================
 
-    h = lambda X, theta: X.dot(theta)
+    def h(X, theta):
+        return X.dot(theta)
 
     J = np.float(-y.T * np.nan_to_num(np.log(sigmoid(h(X, theta))).T) -
                  (1 - y).T * np.nan_to_num(np.log(1 - sigmoid(h(X, theta))).T)) / m
-    reg_theta = theta.copy()
-    reg_theta[0] = 0
-    J += (lmbda * reg_theta.T.dot(reg_theta)) / (2 * m)
+    reg_cost = theta.copy()
+    reg_cost[0] = 0
+    J += (lmbda * reg_cost.T.dot(reg_cost)) / (2 * m)
 
     grad = np.asarray((sigmoid(h(X, theta)) - y.T).dot(X) / m)[0]
-    reg = theta * (float(lmbda) / m)
-    reg[0] = 0
-    grad += reg
+    reg_grad = theta * (float(lmbda) / m)
+    reg_grad[0] = 0
+    grad += reg_grad
 
     # =============================================================
 

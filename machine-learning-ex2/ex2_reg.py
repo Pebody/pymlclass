@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
     # Optimize
     res = optimize.minimize(costFunctionReg, initial_theta, args=(X, y, lmbda),
-                            method='BFGS', jac=True, options={'maxiter': 400})
+                            method='BFGS', jac=True, options={'maxiter': 400, 'disp': True})
     theta, cost = res.x, res.fun
 
     # Plot decision boundary

@@ -40,8 +40,8 @@ def oneVsAll(X, y, num_labels, lmbda):
         # Run scipy.optimize to obtain the optimal theta
         # This function will return theta and the cost
         res = optimize.minimize(lrCostFunction, initial_theta, args=(X, (y == (c + 1)) * 1, lmbda),
-                                method='BFGS', jac=True, options={'maxiter': 50})
-        theta, cost = res.x, res.fun
+                                method='BFGS', jac=True, options={'maxiter': 50, 'disp': True})
+        theta = res.x
 
         all_theta[c, :] = theta
 

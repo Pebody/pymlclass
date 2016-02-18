@@ -15,7 +15,9 @@ def gradientDescentMulti(X, y, theta, alpha, num_iters):
 
         # ====================== YOUR CODE HERE ======================
 
-        h = lambda X, theta: X.dot(theta)
+        def h(X, theta):
+            return X.dot(theta)
+            
         theta -= alpha * (X.T.dot(h(X, theta) - y) / m)
 
         # ============================================================

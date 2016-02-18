@@ -111,7 +111,8 @@ if __name__ == '__main__':
     initial_Theta2 = randInitializeWeights(hidden_layer_size, num_labels)
 
     # Unroll parameters
-    initial_nn_params = np.hstack((initial_Theta1.flatten(), initial_Theta2.flatten()))
+    initial_nn_params = np.hstack(
+        (initial_Theta1.flatten(), initial_Theta2.flatten()))
     print(initial_nn_params.shape)
 
     # =============== Part 7: Implement Backpropagation ===============
@@ -164,14 +165,14 @@ if __name__ == '__main__':
     lmbda = 1
 
     # Create "short hand" for the cost function to be minimized
-    costFunc = lambda p: nnCostFunction(
-        p, input_layer_size, hidden_layer_size, num_labels, X, y, lmbda)
+    def costFunc(p):
+        return nnCostFunction(p, input_layer_size, hidden_layer_size, num_labels, X, y, lmbda)
 
     # Now, costFunction is a function that takes in only one argument (the
     # neural network parameters)
     # res = optimize.minimize(costFunc, initial_nn_params, method='BFGS',
     res = optimize.minimize(costFunc, initial_nn_params, method='CG',
-                            jac=True, options={'maxiter': maxIter})
+                            jac=True, options={'maxiter': maxIter, 'disp': True})
     nn_params, cost = res.x, res.fun
 
     # Obtain Theta1 and Theta2 back from nn_params
